@@ -1,0 +1,14 @@
+Feature: Busca de CEP e Rastreamento nos Correios
+
+Scenario: Validar busca de CEP e rastreamento inválido
+Given que acesso o site dos Correios
+When realizo a busca pelo CEP "80700000"
+Then devo ver a mensagem de CEP inexistente
+
+When retorno para a tela inicial
+And realizo a busca pelo CEP "01013-001"
+Then o endereço exibido deve ser "Rua Quinze de Novembro, São Paulo/SP"
+
+When retorno para a tela inicial
+And realizo a busca de rastreamento pelo código "SS987654321BR"
+Then devo ver a mensagem de código inválido
